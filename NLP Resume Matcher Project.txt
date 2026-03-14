@@ -1,0 +1,199 @@
+🟢 V1 (Correct Starting Version – Interview Safe)
+📥 Inputs
+Job Description → plain text (textarea / file)
+Resume → PDF file upload
+
+📤 Output
+Match Score (%)
+Match label (Strong / Medium / Weak)
+(Optional) Matched skills list
+📌 This is already a complete AI project.
+
+============================
+
+🔁 End-to-End Flow (Simple & Clean)
+
+Resume PDF + Job Description
+          ↓
+PDF Parsing (Apache PDFBox)
+          ↓
+Text Preprocessing (NLP)
+          ↓
+TF-IDF Vectorization
+          ↓
+Cosine Similarity
+          ↓
+Match Score (%)
+
+==========================
+
+✅ Things You DO Use
+Component		What It Is
+Apache PDFBox		PDF → text extractor
+NLP Library		Text processing utilities
+TF-IDF			Mathematical vector model
+Cosine Similarity	Similarity algorithm
+
+
+=========================
+
+🧠 Where AI Is Used (Explain This Confidently)
+Step			AI / ML Concept
+Text cleaning		NLP
+Vector creation		TF-IDF model
+Similarity score	Cosine similarity
+Decision		Statistical inference
+-----
+
+🧠 AI / NLP Concepts Used
+Concept	Purpose
+Tokenization		Break text into words
+Stopword Removal	Remove irrelevant words
+Lemmatization		Normalize word forms
+TF-IDF			Convert text into vectors
+Cosine Similarity	Measure relevance
+
+
+=========================
+
+2️⃣ Services (Clean Design)
+ResumeParserService
+TextPreprocessorService
+VectorizationService
+SimilarityService
+MatchResultService
+
+
+
+=========================
+🧱 System Design (Logical Layers)
+
+1️. Controller Layer
+Accepts resume file + job description
+Returns match result
+
+2️. Service Layer
+Handles business logic:
+Resume parsing
+Text preprocessing
+Vector creation
+Similarity calculation
+
+3️. Persistence Layer
+Stores resume metadata
+Stores match history
+
+4️. Utility Layer
+NLP helpers
+Text normalization
+Similarity math
+
+
+=========================
+
+com.company.resumematcher
+│
+├── controller
+│   └── ResumeMatchController
+│
+├── service
+│   ├── ResumeParserService
+│   ├── TextPreprocessingService
+│   ├── VectorizationService
+│   ├── SimilarityService
+│   └── MatchEvaluationService
+│
+├── model
+│   ├── Resume
+│   ├── JobDescription
+│   └── MatchResult
+│
+├── repository
+│   └── MatchResultRepository
+│
+├── dto
+│   ├── MatchRequestDTO
+│   └── MatchResponseDTO
+│
+├── util
+│   ├── TextCleaner
+│   └── SimilarityUtils
+│
+└── config
+    └── NLPConfig
+
+
+
+=================================
+
+🔹 TF-IDF broken into parts
+1️⃣ Term Frequency (TF)
+
+How often does a word appear in a document?
+
+Example (resume):
+
+java java spring boot
+Word	Count
+java	2
+spring	1
+boot	1
+
+More occurrences → more importance within that document.
+
+2️⃣ Inverse Document Frequency (IDF)
+
+How rare is the word across ALL documents?
+
+java appears in many resumes → less special
+
+kubernetes appears in few resumes → very special
+
+Formula (conceptually):
+
+IDF(word) = log(total documents / documents containing word)
+
+So:
+
+Rare words → higher score
+
+Common words → lower score
+
+3️⃣ TF × IDF = TF-IDF
+
+Final weight:
+
+TF-IDF = TF * IDF
+
+So:
+
+Frequent + rare = high weight
+
+Frequent + common = low weight
+
+🔹 What problem TF-IDF solves (very important)
+
+Without TF-IDF:
+
+Every word has equal weight
+
+“java” == “the” (bad!)
+
+With TF-IDF:
+
+Skills dominate
+
+Noise disappears
+
+Matching improves dramatically
+
+🔹 How TF-IDF fits into YOUR project
+Your current pipeline
+PDF → TextPreprocessor → cleaned text
+Next step
+cleaned text → TF-IDF → vector
+vector → cosine similarity → match score
+
+
+
+

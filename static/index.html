@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Resume Matcher</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<div class="container">
+    <h1>AI Resume Matcher</h1>
+
+    <form id="uploadForm">
+
+        <label for="pdfUpload">Upload Resume (PDF):</label>
+        <input type="file" id="pdfUpload" accept="application/pdf" required>
+
+        <label for="jobDescription">Job Description:</label>
+        <textarea
+                id="jobDescription"
+                rows="5"
+                placeholder="Paste the job description here..."
+                required></textarea>
+
+        <button type="submit">Analyze Resume</button>
+
+    </form>
+
+    <!-- Result Section -->
+    <div id="result" style="display:none;">
+        <h2>Results</h2>
+
+        <p><strong>Score:</strong> <span id="score"></span></p>
+        <p><strong>Level:</strong> <span id="level"></span></p>
+        <p><strong>Keywords:</strong> <span id="keywords"></span></p>
+
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
